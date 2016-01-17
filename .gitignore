@@ -6,8 +6,13 @@
 
 # executables
 *.exe
+
+# settings files
 q3key
 pb_cvars.cfg
+
+# log files
+*.log
 
 # Arhives
 *.rar
