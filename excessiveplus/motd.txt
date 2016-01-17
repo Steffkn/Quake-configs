@@ -1,0 +1,8 @@
+^7Welcome to the ^3Wild ^7Server!
+
+^7Running ^3$(gametype)^7 for
+about ^3$(uptime) ^7hours.
+
+^7GL ^2& ^7HF, $(name)^7!
+
+^7By ^7S^2t^7eff

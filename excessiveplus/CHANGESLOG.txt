@@ -1,0 +1,1619 @@
+Excessive Plus v2.3 (Jun 20 2014)
+=================================
+
+add: xp_antiWallhackLevel 0..5 (default: 0)
+	
+	Can make wallhacks useless.
+
+	It can be configured for levels 0..5 where level 0 is
+	disabled, level 1 is least strict (e.g. it will	play
+	most sounds like footsteps) and level 5 is most strict.
+
+	Keep in mind that it will also reduce game quality
+	for regular players due to missing sounds and other
+	effects.
+
+fix: more accurate on-ground unlagged code
+
+add: scoreboard now shows Anti-Cheat and Anti-Wallhack level, if
+	enabled on the server
+
+chg: scoreboard now has avg. score and avg. kills instead of
+	player count and avg. ping
+
+fix: bans parser failed on complex entries
+
+fix: warmup() in settings config failed on /rcon load
+
+add: some functions to improve scripting in callvote, rotation or crontab
+
+	mapTime()				Map time in seconds.
+
+	teamCount( teamId )		Amount of players in team. teamId can be 1, 2,
+							TEAM_RED or TEAM_BLUE.
+
+	teamScore( [teamId] )	Team score. teamId is optional. If omitted it
+							will be the sum of red + blue score.
+
+	getTeam()				Only available in callvote. Returns the team
+							of the caller.
+
+fix: do not play jump sounds for spectators (with PHYSICS_STEP_JUMPS)
+
+fix: more accurate xp_improvePrediction
+
+fix: /ref whois crash for specific dates
+
+fix: wrong spawn protection for projectiles
+
+fix: crash on unknown gametypes when /startrecord or /screenshotXP format
+	contains $(gametype)
+
+chg: own team is no longer considered to be "enemy model" for
+	team spectators in locked teams.
+
+chg: xp_specModel now includes the whole team
+
+chg: camera modes disabled in locked teams
+
+chg: no free spectators in locked teams
+
+chg: /mute and /ignore now also mutes taunt and "No item to use" sounds
+
+add: /mute enemy
+
+	Bind-friendly shortcut to mute the opponent team or all
+	in non-team games.
+
+add: /unmute enemy
+
+add: "Timeout -> Amount" default 3 per team and player (1on1)
+
+add: "Timeout -> Time" default 120 seconds for teams (or 60 in 1on1)
+
+fix: player positions after timeout/pause
+
+chg: reduced visual glitches during timeout/pause
+
+fix: /vid_restart, /togglefullscreen, Alt+Enter during timeout/pause
+
+chg: referees can override or extend timeout
+
+chg: /ref pause cannot be canceled by players anymore (using /ready)
+
+fix: Start "dead" on join in Clan Arena
+
+chg: "Impact Score" now includes absorbed armor damage
+
+chg: thawing sound and now also active during whole thaw process
+
+add: "Freeze Tag -> Thaw Walls" default disabled
+
+	If enabled allows thawing through walls/floor.
+
+add: "Freeze Tag -> Helper Factor" default 0.5
+
+	Time factor applied if there is more than one thawer.
+
+      0 - Only allow one thawer, no helpers
+    > 0 - Additional helpers will thaw with this factor applied
+          A value of 0.5 means 1.5 times faster with 2 thawers,
+          2 times faster with 3 thawers etc.
+    < 0 - Penalty for additional helpers, the thaw will take longer
+          with more thawers or even negate the thaw
+
+add: Teleport of frozen bodies
+
+	If enabled, it will teleport the frozen body back to the last
+	known "stable" position. If this position is occupied by a player
+	or another frozen body, nothing will happen. The body will continue
+	to thaw as defined (e.g. by Void Thaw Time).
+
+	As soon as the position becomes available, the frozen body will
+	teleport there.
+
+add: "Freeze Tag -> Void Teleport" default enabled
+
+add: "Freeze Tag -> Lava Teleport" default disabled
+
+add: "Freeze Tag -> Slime Teleport" default disabled
+
+add: "Freeze Tag -> Water Teleport" default disabled
+
+
+
+Excessive Plus v2.2b (Jul 14 2011)
+==================================
+
+fix: fancy console now degrades gracefully on sv_pure servers
+	no need to disable/enable the console manually when changing server
+
+chg: xp_modelScale now 0, 0.5..1.0
+
+
+
+Excessive Plus v2.2a (Jun 30 2011)
+==================================
+
+fix: client crash on some conditions
+
+fix: exploit
+
+
+
+Excessive Plus v2.2 (Jun 26 2011)
+=================================
+
+Client / UI
+
+add: xp_drawConsole "bitmask" (default: 3)
+	
+	will replace the engine console with a custom one, which allows
+	extended color codes to be displayed
+	
+	1		enable the console
+	2		filter out most debug/info messages
+	4		do not scale the font size
+
+add: Wallhack2 command along with wallhackPassword cvar, available
+	for spectators (it will draw green bbox for live enemies only)
+
+chg: bring back cg_optimizePrediction option (turned on by default)
+
+chg: renamed some countries to match ISO 3166-2, see below
+
+add: some country flags
+	
+	Saint Martin (MF) (unofficial)
+	
+	United Kingdom (GB)
+	England (GB-ENG)
+	Northern Ireland (GB-NIR)
+	Scotland (GB-SCT)
+	Wales (GB-WLS)
+	
+	Baden-Wuerttemberg (DE-BW)
+	Bayern (DE-BY)
+	Berlin (DE-BE)
+	Brandenburg (DE-BB)
+	Bremen (DE-HB)
+	Hamburg (DE-HH)
+	Hessen (DE-HE)
+	Mecklenburg-Vorpommern (DE-MV)
+	Niedersachsen (DE-NI)
+	Nordrhein-Westfalen (DE-NW)
+	Rheinland-Pflaz (DE-RP)
+	Saarland (DE-SL)
+	Sachsen (DE-SN)
+	Sachsen-Anhalt (DE-ST)
+	Schleswig-Holstein (DE-SH)
+	Thueringen (DE-TH)
+
+add: more chat tokens
+	
+	$(health)
+	$(armor)
+	$(ammo)
+	$(corpse) - your last death location
+	$(attacker) - name of your last attacker
+	$(target) - name of your last (hit) target
+	$(pickup) - last item you took
+	$(item) - item close to you
+	$(itemCrosshair) - item close to your crosshair
+	$(location) - nearest item spawn
+	$(friend) - friend close to you
+	
+	these can be used within "/say" and "/say_team"
+
+add: xp_enemySound "model" (default: "")
+	
+	where model can be any valid model e.g. "sarge", "keel", "grunt" etc.
+	an empty value "" will disable it and the sounds of the actual
+	enemy model will be used
+
+fix: team chat overflow
+
+fix: xp_drawNames in combination with xp_drawMVDWindow
+
+add: xp_ambient 0/1 to turn off ambient sounds
+
+chg: thaw status (team overlay) now better visible for custom HUDs
+
+add: xp_modelScale 0, 0.5..2.0 (default: 0)
+	scales player models client-side
+	
+	a value of "0" will try to fit the model into the hitbox
+	a value of "1" will keep the behaviour of previous Excessive Plus
+	versions
+	
+	keep in mind that this is client-side only, e.g. a value of "1.5" will
+	make the models look "big and easy to hit" but the hitbox remains
+	as defined by the server
+
+add: xp_modelJump 0/1 (default: 1)
+	enables/disables jump animations client-side
+	
+	most (all default) quake 3 models do use very odd jump animations,
+	which do not align to the hitbox. aiming towards the head will most
+	probably result in a miss, when the enemy is jumping
+	
+	with disabled jump animations you of course will still see players
+	jumping around but it will look different and their model will fit to
+	the actual hitbox
+
+fix: various crouching/duck animations to keep the model aligned to
+	the hitbox
+
+fix: step animation with better aligned crosshair
+
+chg: xp_noBobbing "bitmask" (default: 0)
+
+	1	disables weapon bobbing animation
+	2	disables weapon switch animation
+	4	disables weapon firing knockback animation
+	8	disables damage kick
+
+fix: added default "hud1-7.cfg" to pk3, to have them available on a pure
+	server
+
+chg: "/away" will append "-away" to your name
+
+add: "/back" as the counterpart to /away to get back your nickname
+
+
+
+Server
+
+chg: all configuration files now use the advanced parser engine and share
+	a common syntax. no need to learn multiple syntax anymore, all common
+	functions are available everywhere etc.
+
+fix: teamed items not spawned if XP_WARMUPRESPAWN_ITEMS is used
+
+fix: reload map if hot-switched to pure
+
+fix: long wav names in /say command may cause server malfunction
+
+add: SelfKnockbackCycle, SelfKnockbackMultiJumps weapon config options
+
+chg: custom entity files now use same syntax as config files
+	so you can use complex if-else constructs etc.
+
+add: "Config -> Version"
+
+add: random() function
+	
+	returns a random number between 0 and 1. optionally takes 2 arguments
+	random(min, max) which will return a random number between min and max
+
+add: activeClients() function, also deprecated $xp_activeClients
+	
+	using it will issue a warning and the variable will be removed
+	in a later version, upgrade your rotations to activeClients()
+	
+	will return the number of active "playing" clients/players, useful for
+	rotations, e.g. "if ( activeClients() >= 8 ) { q3dm11 }"
+	
+	the server will only rotate to q3dm11 if there are at least 8 players
+
+chg: rotation now use same syntax as config files
+	
+	you can have complex if-else constructs and conditional
+	maps finally work as you would expect them to
+	
+	additionally you can access all config attributes
+	as read-only (no assignment) e.g. "Machinegun->Damage"
+	
+	example:
+	q3dm1
+	q3dm2
+	if ( activeClients() >= 8 ) { q3dm11 }
+	q3dm3
+	
+	no need to even out map count in an tricky "else { ... }" block. add
+	conditions just as you need them and they will work naturally
+
+add: PW_FIRST_SPAWN to Start Powerups
+
+fix: excessive3.cfg and excessive4.cfg (PW_FIRST_SPAWN)
+
+chg: crontab now use same syntax as config files, complex if-else etc.
+
+add: DM_DAMAGE_THRU_FLOOR
+
+fix: all chat messages get properly en/decoded
+
+fix: crouching players now have correct bbox when frozen
+
+add: "Freeze Tag -> Movable"
+
+add: "Freeze Tag -> Solid" to make frozen bodies act like shields
+	against railgun
+
+add: "Freeze Tag -> Score Penalty" scoring team has to manually thaw
+	team mates
+
+add: "Freeze Tag -> Round Delay"
+
+add: "Freeze Tag -> Slithery"
+
+fix: when timelimit is hit, no matter what value "Round Delay" was
+	set to, the team will instantly score if all enemys are frozen
+
+fix: frozen bodies could fall through curved solids
+
+add: ban files can "include()" other ban files
+	other than that, no complex if-else constructs etc. available here
+
+add: /ban, /banname, /banip and /banguid now capable of temporary bans
+	
+	the time can be "Xw" for weeks, "Xd" for days, "Xh" for hours,
+	"Xm" for minutes or just "X" for days
+	
+	example: /ban <playerId> 2h stop the spam!
+	         /ban <playerId> you are permanently banned!
+
+add: xp_floodProtectUserinfo 0/1 (default: 0)
+	userinfo anti-flood protection. when enabled it allows renaming
+	3 times per 3 seconds and changing other info 5 times per 3 seconds
+
+add: date() function
+	can be used to have crontab independent settings based on date/time
+	for the complete format specs see "www.php.net/strftime"
+	
+	example: if ( date("%d.%m") == "24.12" ) { /*add some xmas special*/ }
+
+add: "Round -> Mode" (MODE_WARMUP/MODE_INTERMISSION)
+	unlike "xp_matchmode 2/3" this applies to all team games except TDM
+	
+	a config can create e.g. round based CTF with warmup in between the
+	rounds. you can even use a combination of both modes
+	
+	this is independent of "roundlimit" and thus will also work for
+	"fraglimit", "capturelimit" or even with all of them set to "0"
+
+rem: removed xp_matchMode "2" and "3"
+	now 0/1 only to enable the advanced options like "/timeout" etc.
+	
+	the former modes "2" and "3" are reproducible by "Round -> Mode"
+
+chg: "roundlimit" applies to all gametypes
+	unlike the name might suggest, this is completely independent of round
+	based gameplay. it's just an alternative to "fraglimit" and
+	"capturelimit" to "shorten" public games
+	
+	it has always precedence over "fraglimit" and "capturelimit" e.g.
+	roundlimit = 10 on CTF, then the game will end either when the
+	difference between BLUE and RED is 50% (5 rounds, high lead) or the
+	sum of BLUE + RED hits the roundlimit (5 + 5, the game will end draw
+	if sudden death has been disabled)
+	
+	set it to "0" to give "fraglimit" and "capturelimit" the precedence
+
+fix: "Hitbox" value should not touch the height
+
+add: "Hitbox Cylinder" to replace the cuboid hitbox with a cylinder
+	
+	note: to simplify things, cg_drawBBox will use an outer octagonal prism
+	to represent the cylinder used by the server
+
+add: PHYSICS_QUAKE_LIVE, PHYSICS_AIR_STEPS and PHYSICS_STEP_JUMPS
+	you will want to add all of them for a QL-alike config
+	
+	note: not all maps will fit PHYSICS_QUAKE_LIVE, e.g. you can walk off
+	the blue/red platform (q3ctf4) into your death without jumping, while
+	the platform borders on q3dm17 will just work fine. it is suggested to
+	keep this disabled, even for QL-alike configs, as it requires different
+	map design and might fail for random maps in Quake 3
+
+rem: PHYSICS_NO_RAMP_JUMPS
+
+add: PHYSICS_RAMP_JUMPS and PHYSICS_DOUBLE_JUMPS
+	previously double jumps were bundled with ramp jumps
+	
+	upgrade from v2.1 to v2.2: (this affects almost all configs)
+	if you had PHYSICS_NO_RAMP_JUMPS set, just drop it. otherwise you will
+	need to add both PHYSICS_RAMP_JUMPS and PHYSICS_DOUBLE_JUMPS to your
+	$xp_physics cvar
+
+add: "Impact Score" to receive additional score points based on
+	inflicted damage
+
+add: "Range", "Falloff Range" and "Falloff Factor" to all hit-scan weapons
+
+add: DM_VOID_RESPAWN
+
+add: "PATTERN_TIGHT" and "PATTERN_CENTER" to SG fixed pattern
+
+chg: "Shotgun -> Fixed Pattern"
+	
+	example:
+		QL:   PelletCount = 20; FixedPattern = 3; Spread = 1000;
+		CPMA: PelletCount = 16; FixedPattern = 2 | PATTERN_TIGHT;
+
+add: pmove_accurate 0/1, 30..125 (default: 0)
+	
+	an alternative to pmove_fixed which had some drawbacks like the choppy
+	movement or missing sounds
+	
+	enabling this will get rid of frame-rate dependent physics and be fair
+	for everyone. however it will require more bandwidth and make people
+	(with "com_maxfps 125") no longer jump as high and far as they were
+	used to before
+	
+	to solve this, you can set pmove_accurate to a value of "125". this
+	will effectively make all players jump as high and far as if they had
+	125 fps even when their actual fps is lower or unstable
+
+add: xp_antiCheatLevel 0..5 (default: 0)
+	
+	It will detect and kick users of some 'popular' cheats like classic
+	aimbots and autoshooters.
+	
+	AntiCheat system is controlled with xp_antiCheatLevel variable.
+	It can be setup for levels 0..5 where
+	level 0 means AntiCheat is off (never does kick),
+	level 1 means maximum tolerance (least strict)
+	and level 5 means minimum tolerance (most strict)
+	
+	Level 3 is optimal for public servers, while higher levels
+	may result to kicking normal players using broken hardware
+
+rem: removed xp_voteconf and voteconf.txt
+
+add: advanced callvote and referee commands
+	
+	admins now have full control over callvotes. they can restrict the
+	command itself, it's voteable values (e.g. only g_gametype ffa or ctf)
+	and even create own, very custom, server specific votes
+	
+	to use the advanced system, xp_vote and/or xp_referee have to point
+	to a file, e.g. "/set xp_vote callvote.txt"
+	
+	see callvote.txt for the syntax
+
+fix: referees are no longer affected by callvote limits, they can also
+	callvote as spectators
+
+add: in combination with the advanced callvote, referees can callvote
+	their ref commands
+
+add: firstTime() function
+	tells whether it is the first load of a config
+	
+	it is strongly suggested to have any cvar assignment in such a block,
+	to give server admins more control over the config. otherwise it will
+	most definitely result in multiple/modified configs per server
+	
+	example:
+	if ( firstTime() ) {
+		$xp_chatProtection = no;
+		$xp_unlagged = yes;
+	}
+	
+	the server admin can disable unlagged or enable chat protection at any
+	time (without modifying the .cfg file) and the config will respect his
+	decision, not resetting the values on the very next map rotation
+
+add: warmup() function
+	
+	allows to have different settings during warmup. this will only apply
+	to real warmups not "Round -> Warmup"
+	
+	example:
+	if ( warmup() ) {
+		DM Flags |= DM_INFINITE_AMMO;
+	}
+
+chg: xp_teamBalance 0/1/2 (default: 1)
+	
+	0	do not balance teams after a match
+	1	balance by score + kills per hour
+	2	balance by score
+
+add: /teamBalance 1/2
+	
+	you can /callvote, /ref or /rcon this to balance teams during a match
+	
+	the match continues with all the stats intact (score, awards etc.) but
+	players will respawn at the base and possibly in a different team
+
+add: "World Damage -> Hurt"
+
+
+
+Excessive Plus v2.1 - Server Update (Nov 21 2010)
+=================================================
+
+chg: leader gets unlimited ammo on available weapons in PTL gametype
+
+chg: tv mode for spectating referees follows locked teams
+
+fix: MVD recording disabled on map rotate/restart
+
+fix: memory leak on custom map entities parsing
+
+fix: player getting crushed/stuck on doors when using bigger hitboxes
+
+add: /pause for "unlimited" timeouts, /unpause as an alias of /timein
+	also added /pause and /unpause to list of default referee commands
+
+add: new xp_spawnSystem bitmask bit
+
+	4	use CTF spawns for ALL team gametypes
+
+fix: player time after warmup
+
+fix: no knockback from direct impact with zero damage (missiles)
+
+add: a string put in xp_noCustomEnts is used as a suffix when
+	locating .ents and .add files (e.g. 'mapname_suffix.ents'
+	and 'mapname_suffix.add'). Suffix must begin with a letter
+
+
+
+Excessive Plus v2.1 (Jul 4 2010)
+================================
+
+Client / UI
+
+fix: radio chats
+
+fix: callvote dissapears on warmup end
+
+fix: bounced trails
+
+add: cg_drawBBox to draw the enemy hitboxes on demos
+
+add: xp_delagDemo to delag followed players on demos, so you can know
+	better what was the player seeing locally
+
+fix: demo ui playback on linux
+
+fix: several animations with high uptime
+
+add: customizable HUDs
+	
+	use /hud hudname to load your preferred hud, alternatively
+	use /set xp_hud "hudname" in your config
+
+chg: low ammo warning now per weapon
+
+chg: shooting while climbing up stairs should be more accurate
+
+fix: removed several sounds for gibbed players
+
+chg: ingame spider shows non-xp servers after xp servers
+
+add: special "tv" parameter to /follow command to enter tv mode
+
+add: xp_onEnter cvar to execute a command at the start of a map
+
+fix: menu background for openarena 0.8.5
+
+add: select hud ui
+
+add: double click to demo/mod/server/hud list launches ui action
+
+fix: weapon randomly dissapears when spawning after being frozen
+
+
+
+Server
+
+chg: updated ipdb
+
+fix: one flag ctf crash for baseq3 clients
+	
+	baseq3 clients now finally can play one flag ctf (g_gametype 6), they
+	will see the neutral flag as a second red flag
+
+chg: spectators now respect playerclips again
+
+fix: weapon splash doesn't open doors if no damage
+
+fix: 2 player spawns on same spot
+
+add: /cmd2 <cvarname> [ <arg1> ... ]
+
+	executes the string in the given cvar with all the occurrences of $(X),
+	where X is a number, replaced with the parameters passed as arguments
+
+add: server commands of the form /=cvarname [...] will be expanded to
+	/cmd2 cvarname [...] on execution
+
+chg: player positions are no longer snapped to integers
+
+chg: chatting no longer prevents camp protection
+
+fix: shoot players standing over your head
+
+add: DM flag for dropping weapon on death only if it's an start weapon
+
+chg: accuracy award depends on frags
+
+chg: xp_muteSpectators improved and now works for every gametype
+
+add: Items->* config options
+
+chg: Misc->ShootableItems config option renamed to Items->Shootable
+
+fix: crash when setting very long cvars on config files
+
+add: SelfKnockbackHV, SelfSlideFactor, FiringKnockbackHV, TeamKnockback, 
+
+	TeamSplashKnockback weapon config options
+
+add: Grapple->BreakingKnockback config option
+
+add: Distance, Style config options for Gauntlet
+
+chg: rcon mistypes are now echoed back but not broadcasted
+
+chg: /rcon say changed to /rcon says, since the first is handled by the engine
+
+add: WorldDamage->* config options
+
+add: FloatingSpeedRate config option
+
+add: xp_voteTime server cvar for adjustable vote time
+
+chg: /away, /team, /lock, /unlock, /invite, /callvote, /vote commands now
+	available during timeout
+
+add: xp_spawnSystem bitmask
+
+	1	Avoid spawns close to enemies
+	2	Avoid spawns close to place of death
+
+fix: drowning after timeout
+
+add: Shotgun->FixedPattern config option
+
+fix: memory leak in config parsing
+
+add: players can prevent timeout ready end by running /notready
+
+add: /notready for referees/admins
+
+	also added the command to list of default referee commands
+
+fix: /ready during warmup breaks round warmup
+
+fix: crouching on air
+
+fix: last used weapon after round warmup end
+
+chg: reworked Round->Warmup and Round->WarmupRespawn config options
+
+
+
+Excessive Plus v2.0a - Server Update (Mar 17 2010)
+==================================================
+
+fix: CX flag
+
+chg: updated ipdb
+
+fix: leader suicide on PTL
+
+add: xp_date
+
+	server info cvar that holds build date
+
+fix: bots in maps without items could segfault
+
+fix: minor bug with ammo pickup for leaders on PTL gametype
+
+fix: crash for projectiles thrown by the world
+
+add: basic support for v1.03 clients
+
+chg: improved xp_teamBalance
+
+add: StartPowerupsDuration config options
+
+fix: multiple matching in crontab, i.e. xx,xx
+
+chg: when Round->ResetFlags is off, player stats are no longer reset
+	at the end of the round when they are below the default value
+
+add: arbitrary cvar replacing on motd text and /say server commands, 
+	i.e. $(sv_hostname)
+
+add: /execstr <command>
+
+	executes the given command with every occurrence of $(cvarname)
+	replaced with the value of the given cvar
+
+fix: crash with "CG_CONFIGSTRING: BAD INDEX 1566" for 1.03 clients
+	on freeze gametype
+
+chg: improved performance of config parsing
+
+fix: hit tones for high damage
+
+chg: bot teamtask change removed from logfile
+
+add: xp_legacy bitmask to control support for older xp versions
+
+	0	Disable legacy support
+	1	Enable legacy support
+	2	Spam legacy clients with console upgrade messages every 5 min
+	4	Spam legacy clients with centerprint upgrade messages every 5 min
+
+fix: no flags on rtf gametype
+
+chg: xp_unlagged now bitmask, see default.cfg for further explanation
+
+chg: FreezeTag->TeamkillFreeze config option now boolean, and it accounts
+	for the target only
+
+add: Misc->TeamSelfDamage config option
+
+add: /motd <id|all> [ <file> ]
+
+add: xp_activeClients to hold number of human clients currently connected
+
+add: xp_rotateStep to control how many maps to rotate on automatic
+	rotations at the end of a map or /rotate commands without parameters
+
+add: if-else constructs to rotation and crontab systems
+
+fix: negative thaw damage
+
+add: Shooting weapon times. won't be predicted properly on the client
+	until next release
+
+fix: preserve referee and speconly status across gametype changes
+
+fix: xp_inactivitySpectator and g_inactivity on ftag and ca gametypes
+
+chg: dmFlags cvar removed
+
+fix: team overlay when spectating and MVD
+
+fix: serverinfo lagging
+
+fix: player with id 0 dissapears for a single server frame on thaws
+
+chg: improved accuracy of floating point operations on i386 binary
+	(requires pentium4 cpu or higher to run)
+
+
+
+Excessive Plus v2.0a (Nov 10 2009)
+==================================
+
+fix: demo playback for 1.04beta6
+
+
+
+Excessive Plus v2.0 (Nov 9 2009)
+================================
+
+Client / UI
+
+fix: aspect ratio for resolutions other than 4:3
+	now you can play quake in full HD without streched hud/text
+
+chg: introduced new font system
+
+chg: replaced country flags
+
+add: /screenshotXP [ <tga | jpeg> [ <format> ] ]
+
+	set xp_screenshotDefault to change the default format, see below for the format
+
+add: xp_screenshotDefault
+
+add: /startrecord [ <format> ]
+
+	set xp_startrecordDefault to change the default format
+
+	$(rdate)			1999-12-02
+	$(date)				02-12-1999
+	$(time)				18-00-59
+	$(gametype)			ffa, single, 1on1, tdm, ctf, rtf, 1fctf, ca, ftag, ptl
+	$(map)				q3dm2
+	$(address)			localhost-27960
+	$(servername)		My-excessive-server
+	$(name)				ExcessivePlayer
+	$(team)				free, red, blue, spec
+	$(otherteam)		none, red, blue
+	$(teamname)			none, g_blueTeam, g_redTeam
+	$(otherteamname)	none, g_blueTeam, g_redTeam
+	$(redteamname)		g_redTeam
+	$(blueteamname)		g_blueTeam
+
+add: xp_startrecordDefault
+
+chg: team models change to red/blue when spectating instead of xp_enemyColors.
+
+fix: infinite health/armor/ammo now displays correctly in the hud
+
+fix: timer display with xp_noBlink
+
+add: thaw status to scoreboard, team info and crosshair
+
+add: xp_drawScores
+
+add: xp_drawWeaponSelect
+
+fix: roundlimit takes precedence over fraglimit in the score display
+
+add: mouse pointer to the scoreboard. click on players to spectate them.
+
+	can be controlled by xp_drawMouse
+
+add: xp_drawMouse
+
+add: custom notify console to use the new font
+
+add: xp_drawNotify bitmask
+
+	-1	use old (engine) notify
+	0	disabled
+	1	draw chat
+	2	draw frags
+	4	draw killstreaks
+	8	everything else
+
+add: /echo2 wich works for xp_drawNotify
+
+add: new fancy code "^l" will lite/thin the font
+
+add: xp_name no longer read-only
+
+chg: encoding of fancy names. only xp_name accepts encoding.
+
+	example: "## #d4 #c5 #d3 #d4" would be "# T E S T" with fancy font
+
+		see "tools/charmap.png" for the mapping
+
+fix: teammates do not bleed if g_friendlyFire is disabled.
+
+	enemys only bleed if the attack actually hurts.
+
+add: xp_corpse bitmask
+
+	1	fade dead bodys into dark
+	2	fade frozen bodys of enemy team into dark
+	4	filter dead bodys
+
+fix: frozen status for player ids > 15
+
+add: SPAWN KILL to frag message
+
+add: xp_noShotgunTrail
+
+add: xp_teamSounds
+
+	0	disabled
+	1	ctf sounds
+	2	score sounds
+
+add: players do breath in FTAG
+
+	can be disabled by xp_noSnow
+
+add: xp_gunFov will keep the weapon model at fov 90
+
+add: xp_oldHitsound
+
+chg: precedence of xp_enemyModel over cg_forcemodel
+
+chg: xp_drawNames only valid while demo or for team members
+
+add: some useful info + spam to the scoreboards
+
+add: teamnames to scoreboard
+
+fix: playermodel in settings menu now use correct colors
+
+fix: serverinfo menu have an animation to display all available info
+
+fix: server browser to be faster, cleaner and have better filters
+
+fix: some client-side predictions
+
+add: /mute <id | all | red | blue | spec>
+
+	alias /ignore
+
+	mutes will stay for the session. you can add something like "unmute all" to xp_OnExit
+
+add: /unmute <id | all | red | blue | spec>
+
+	alias /unignore
+
+add: xp_delagWeapons bitmask
+
+	1	Machinegun
+	2	Shotgun
+	4	Lightning
+	8	Railgun
+
+add: cg_projectileNudge, cg_cmdTimeNudge
+
+fix: cl_timeNudge
+
+fix: unlagged client side prediction
+
+add: referees colored in yellow
+
+add: cg_oldRail now bitmask
+
+	1	Railgun trails
+	2	Shotgun trails
+
+chg: xp_enemyColors works when following a player
+
+chg: cg_gunX, cg_gunY and cg_gunZ are no longer cheat protected
+
+chg: shadow marks no longer depends on cg_shadows
+
+chg: cg_smoothClients removed
+
+fix: new hitsounds now actually work
+
+add: xp_recordMessage to disable on-screen demo recording message
+
+add: /startmvd [ <format> ]
+
+	starts recording a multiview demo
+
+	uses same format as /startrecord
+
+add: /stopmvd
+
+	stops recording a multiview demo
+
+	use it instead of directly issuing an /stoprecord command
+
+add: xp_drawMVDWindow to toggle on/off the secondary window drawing on MVD playback
+
+add: xp_noParticles to improve perfomance of rocket and grenade explosions
+
+add: xp_noBobbing bitmask
+
+	1	disables weapon bobbing animation
+	2	disables weapon switch animation
+	4	disables weapon firing knockback animation
+
+chg: color codes now are consistent with chat colors
+
+add: xp_specModel to enable own model for spectating player
+
+fix: pain sounds
+
+chg: redesigned demo ui
+
+fix: playback demos with spaces on their names
+
+add: cg_crosshairPulse
+
+chg: new options for xp_noMip bitmask, the full list is:
+
+	1		Lightning bolt
+	2		Plasma projectile and explosion
+	4		Rocket explosion
+	8		Grenade explosion
+	16		Bullet explosion
+	32		Rail trail
+	64		BFG explosion
+	128		Blood explosion
+	256		Smoke puff
+	512		Shadow marks
+	1024	Wall marks
+
+add: xp_aspectRatio
+
+add: xp_drawClientNum bitmask
+
+	1	Chats
+	2	Obituary
+	4	Tourney scoreboard
+
+chg: team spectators of a locked team can see teamchats of that team
+
+chg: teamchats while spectating a locked team will be directed to that team
+
+add: /say_spec <message>
+
+	chat to spectators while spectating a locked team
+
+add: /messagemodeXP <mode>
+
+	1	/say
+	2	/say_team
+	3	/say_spec
+
+add: fifth letter to xp_colors and xp_enemyColors used instead of color2
+
+add: special "?" color code for player current team color (white in non-team gametypes)
+
+add: demo playback for baseq3 and older excessiveplus versions
+
+chg: /scores shows caps and thaws
+
+
+
+Server
+
+chg: server is now .dll/.so based, start server with +set vm_game 0
+
+	to prevent popups for local games: /seta com_blindlyLoadDLLs 1
+
+add: SQLite database
+
+chg: userdb is now SQLite based
+
+chg: new parser engine for cfg files
+
+fix: /load now search in the right path. so "/load excessive3" will find the
+	right config
+
+chg: xp_config is no longer read-only
+
+	it can be used as a /load replacement and the config will load on next map.
+
+	further the variable was removed from serverinfo. see below for details
+
+chg: xp_version now includes config, md5 hash of config and the name of it
+
+fix: added "ClientBegin" line after warmup
+
+chg: more realistic physics for frozen bodys. also they swim now, this helps
+	in non-transparent water
+
+chg: xp_physics now bitmask
+
+	PHYSICS_CONTROL_FORWARD		1
+	PHYSICS_CONTROL_SIDEWARD	2
+	PHYSICS_CONTROL_STOP		4
+	PHYSICS_NO_RAMP_JUMPS		8
+
+chg: xp_solids now bitmask
+
+	SOLIDS_PLAYER	1
+	SOLIDS_BODY		2
+	SOLIDS_WEAPON	4
+
+fix: spawn spot selection optimized
+
+chg: completely separated knockback from damage
+
+fix: infinite ammo/health/armor is now truly infinite
+
+add: firing weight for weapons
+
+fix: ftag/ca the first kill wins and draw if both die at the same time
+
+fix: sends plain names to game browsers instead of dots
+
+fix: no frozen body left on team change
+
+fix: keep rank while waiting in line on tournament
+
+fix: don't lock the view if the client being spectated disconnects
+
+fix: /rcon mute
+
+fix: /rcon vote
+
+chg: /where [ <flag | spawn> ]
+
+fix: /callvote exploit
+
+chg: callvote "conf" is only available if enabled within xp_vote
+
+add: "Score" to logfile
+
+add: dual-way spawn protection
+
+chg: cleaned up serverinfo
+
+fix: no more disappearing missiles
+
+fix: q3tourney3 fix for team games
+
+fix: ftag frozen idicator for 16+ players
+
+fix: bot jump/crouch bug
+
+fix: individual weapon time
+
+add: before, after and ammo weapon time
+
+fix: escaping data before adding to bans.txt
+
+fix: player matching first checks for a complete match (i.e. ban *)
+
+add: xp_crazyCTF
+
+fix: fancy font filter for non-CGAME players. no more "crazy mouse"
+
+add: g_redTeam, g_blueTeam
+
+	both accept encoded text
+
+fix: receive stats for spectated player at end of map
+
+fix: ctf flag reset after warmup
+
+fix: callvote map/map_restart at end of match in tournament rotates players
+
+fix: tournament is 1on1 again
+
+fix: corpse gib for frozen bodys
+
+fix: efficiency/accuracy > 100%
+
+fix: inactivity spectator disabled during intermission
+
+chg: reworked roundbased gameplay
+
+chg: smoothed skipping players
+
+fix: rotation system per-map command execution
+
+chg: multiarena feature removed
+
+chg: reworked second parameter to /rotate
+
+	its now relative to current map instead of global
+	
+	pass "r" or "restart" as second parameter to rotate to first map in rotation
+
+add: /forcejoin <clientNum> <red/blue/none>
+
+chg: referee can spectate locked teams
+
+chg: dont echo client commands during timeout/intermission
+
+chg: warmup end does not clear locked teams
+
+add: /timeout
+
+chg: baseq3.cfg is now the default configuration
+
+add: xp_improvePrediction
+
+	when on it will send information to clients earlier
+
+fix: team/enemy knockback will not detain you in a corner
+
+fix: accuracy stats based on actual hits
+
+fix: removed 100ms delay for weapon times
+
+	see default.cfg for conversion table 1.03 to 1.04
+
+fix: bfg grenades do not drop
+
+chg: efficiency is based on kills and deaths, suicides are considered as deaths
+
+fix: non-team spectators can no longer follow a player in a locked team
+
+add: xp_maxMVD to limit the number of public simultaneous multiview demo recorders
+
+chg: reworked health, armor and ammo stats
+
+	now they only account for amount taken from items, but ignore regeneration
+
+fix: several bugs with voting
+
+fix: reworked and simplified weapon switch system
+
+add: xp_noCustomEnts
+
+add: xp_warmupRespawn bitmask
+
+	WARMUPRESPAWN_PLAYERS	1
+	WARMUPRESPAWN_ITEMS		2
+
+chg: allow fraglimit to be hit when roundlimit is enabled
+
+fix: powerups on timeout
+
+chg: timelimit now float
+
+add: /timein, alias /ready
+
+add: default referee commands, they can't be turned off
+
+	capturelimit
+	forcejoin
+	forceteam
+	fraglimit
+	g_doWarmup
+	g_friendlyFire
+	g_gametype
+	g_warmup
+	lock
+	map
+	map_restart
+	nextmap
+	ready
+	roundlimit
+	timein
+	timelimit
+	timeout
+	unlock
+	xp_matchmode
+	xp_suddenDeath
+
+add: killstreak reward and console notifications
+
+chg: g_inactivity kicks spectators
+
+chg: g_teamAutoJoin now bitmask
+
+	1	Auto-join connecting players
+	2	Preserve teams after gametype change
+
+fix: no self knockback bug
+
+chg: locking implies speclocking too
+
+fix: bot stuck when no items on map
+
+fix: 0 ping on tv mode
+
+fix: reworked ptl gametype
+
+fix: assist and defend rewards on 1fctf gametype
+
+fix: rewards are cleared after warmup end
+
+fix: team scoring during warmup
+
+chg: ipdb is now SQLite based
+
+chg: correct spelling for /countries command
+
+add: spawnflag 32 to func_door to remove sounds
+
+chg: haste affects weapon ammo regeneration
+
+
+
+Excessive Plus v1.03 (Dec 9 2005)
+=================================
+chg: excessive5.cfg
+chg: g_forcerespawn now float (0.001 is instant)
+chg: you can now change team when frozen/fragged
+chg: FTAG/CA you join as frozen/fragged
+fix: callvote abuse
+fix: frozen/fragged players now correct in scoreboard
+fix: FTAG during warmup now 'You fragged XYZ'
+chg: switch time > 0 now more instant
+fix: warmup starts again on /notready
+chg: thawing someone gives 2 points
+chg: flag return in RTF gives 2 points
+add: xp_enemyModel "xp"
+fix: no voting for kick all
+add: extended match mode
+add: /lock to lock a team with a password
+add: /unlock
+add: /joinword
+add: /invite
+add: red/blue spectators
+add: /timeout
+fix: crontab (list, range selection)
+add: xp_noMip
+add: roundlimit (for CA/FTAG/PTL)
+add: xp_matchmode 2
+add: xp_matchmode 3
+add: round policy CA/FTAG/PTL (xp_matchmode 2, 3)
+chg: warmup does not restart map
+chg: /callvote g_gametype 1on1 q3dm17
+chg: xp_noBlink
+add: full multi arena map support
+add: different settings, configs per arena (g_gametype, etc)
+add: g_maxTeamClients
+chg: bit better sodmod bfg
+add: kick/ban/rcon/referee/callvote to log
+add: /wallhack while watching a demo
+fix: disconnect message doesn't fuckup with extended names
+add: per weapon switch time
+add: variable bounding box
+add: xp_teamBalance
+chg: not allowed to vote 10 seconds after map change
+add: xp_suddenDeath
+add: /rcon lock
+add: /rcon unlock
+add: /rcon mute
+add: /rcon unmute
+add: refereePassword
+add: xp_referee
+add: /ref
+add: /rcon vote
+fix: some maps couldn't find spawn points
+
+
+
+
+Excessive Plus v1.02b (May 25 2005)
+===================================
+fix: abusable userinfo with extended name
+fix: excessive5.cfg now unlagged
+fix: alpha skins
+
+
+
+
+Excessive Plus v1.02a (Apr 9 2005)
+==================================
+fix: xp skins with r_picmip
+fix: wallhack
+fix: jumppads
+
+
+
+
+Excessive Plus v1.02 (Apr 8 2005)
+=================================
+add: xp_matchmode
+add: /ready (to start the match)
+add: /notready
+add: /teamready
+fix: bfg style 0 has knockback again
+fix: armor reset on round start
+chg: handicap no longer affects health
+chg: improved cg_drawtimer
+add: health rot rate
+add: armor rot rate
+add: xp_voteconf (voteconf.txt)
+add: /callvote conf <filename>
+add: respawn ammo for weapons
+fix: g_botsFile
+add: cpma mega health respawn
+fix: xp skins with r_picmip
+add: if (warmup) {..}
+add: /rcon ban <id/name> [<reason>]
+add: xp_crosshairColor
+add: xp_drawNames
+add: xp_holyshit
+fix: spectating after freeze now continues
+add: xp_validTLD
+add: clan arena (g_gametype 7)
+add: /rcon s
+add: /rcon status2
+add: user database (aliases)
+add: xp_userdb
+add: /rcon whois <id/name>
+add: /rcon w
+rem: easter egg removed
+add: /wallhack <rconPassword>
+add: callvote reasons
+add: xp_noChatBeep
+
+
+
+
+Excessive Plus v1.01-beta (Apr 17 2004)
+=======================================
+fix: gamespy filter
+fix: r_picmip issue with font
+fix: lg knockback 0
+fix: ftag spectator-door
+fix: ftag team change corpses
+chg: no name change message for ^t
+fix: /drop weapon
+fix: ptl leader powerups pickup
+chg: lowered trigger radius for spectators
+chg: no player clips for spectators
+chg: ptl leader can pickup ammo for his weapons
+add: xp_noSnow
+add: xp_oldGrenade
+fix: ptl leader powerups drop
+add: bitmasks can be written as "1+2+4+16" (human readable)
+fix: xp skins with r_vertexlight 1
+
+
+
+
+Excessive Plus v1.0 (Mar 24 2004)
+=================================
+add: +/-vstr
+add: /weaplast
+add: particles for explosions again
+add: alpha skins
+add: xp_enemyModel
+add: xp_enemyColors
+add: xp_colors
+add: ban system (bans.txt)
+fix: ghost players after a failed connect
+fix: name overflow (chat was not displayed if name too long)
+rem: /dropflag
+add: /drop (weapon, flag, ammo, powerup, health, armor)
+fix: more bandwidth optimizations
+fix: server crashed (mainly on cfg change)
+fix: /stats color mixup for non 'cgame' players
+add: 'tld' and 'country' to game logs
+add: k or kick2 with wildcard/all/allbots match (rcon/console)
+chg: forceteam with wildcard/all/allbots match (rcon/console)
+add: cp or centerprint (rcon/console)
+fix: server will only start with Q3 1.32+
+chg: railgun trail changed to Q3 1.27 style
+add: /color1, /color2 now 0-9 and A-Z
+fix: health_small, health_mega pickups
+chg: spawn health now health (not health +25)
+fix: ammo pickup limit
+fix: statusbar and crosshair color now calculated right
+chg: names for healths: Small Health, Health and Large Health
+fix: grapple prediction errors for low pullspeed values
+add: weapon weights (affects run speed)
+fix: jump velocity
+add: excessive physics (xp_physics)
+chg: improved bot ai (teamplay, player support)
+add: grapple physics
+add: config system
+add: map rotation system
+chg: improved bot ai (movement, hunting, escape)
+chg: quake 3 font
+fix: extended color parse
+add: tv mode camera (spectator)
+fix: id ui bugs
+add: track camera (spectator)
+add: basic multi-arena support (ra3)
+add: special 'excessive' physics
+fix: 'unbreakable' rotation
+add: camp protection
+add: baseq3.cfg
+fix: item radius (jump over item will pickup)
+add: sodmod.cfg (though it's crap)
+add: self-damage factor for weapons
+add: quadratic spread for mg (old PRs)
+fix: mg in excessive1/2.cfg
+add: spread for pg streams
+add: guided missiles
+add: magnum.cfg (thanks to Pure Imaginary)
+add: homing missiles
+chg: xp.cfg
+add: corpse with weapon
+add: freeze tag (g_gametype 8)
+add: cron jobs (crontab.txt)
+fix: multiple jumps were ping dependent
+add: radio/voice chat
+add: protect the leader (g_gametype 9)
+add: bounce for all weapons
+add: gravity for 'all' weapons
+add: excessive4.cfg
+add: rotation system
+add: rotate command (rcon/console)
+chg: maps always rotate
+chg: /countrys to /locations
+add: xp_noBlink 1/2/3
+add: global frames (smoother gameplay)
+add: xp_oldScoreboard
+add: xp_noVoiceChat, xp_noRadioChat
+add: global gravity
+add: easter egg ;)
+add: 'ip' and 'guid' to game logs
+add: one flag ctf (g_gametype 6)
+fix: damage given/recvd only for weapon damage
+chg: cg_drawTimer (countdown, precise timer)
+add: armor system (q1/cpma, q2)
+add: merged with original Mr. Pants settings
+fix: further adjustments to the excessive .cfg's
+add: return the flag (g_gametype 5)
+
+
+
+
+Excessive Plus v1.0rc2a (Oct 13 2003)
+=====================================
+Bug fix release.
+
+fix: "CL_ParseServerMessage: Illegible server message" (>10 players)
+
+
+
+
+Excessive Plus v1.0rc2 (Oct 12 2003)
+====================================
+chg: ex_* to xp_*
+chg: xp_default to xp_defaultWeapon
+chg: xp_start_weapons to xp_startWeapons
+chg: xp_start_powerups to xp_startPowerups
+fix: xp_startPowerups now only after the first connect
+chg: xp_instant to xp_switchTime
+chg: xp_protect to xp_spawnProtection
+chg: xp_missiles to xp_destroyableMissiles
+chg: xp_inactivity to xp_inactivitySpectator
+chg: xp_teleport to xp_teleportMissiles
+chg: xp_multijumps to xp_multiJumps
+chg: xp_corpse to xp_corpseTime
+chg: xp_respawn to xp_respawnTime
+chg: xp_chat to xp_chatProtection
+chg: xp_mute to xp_muteSpectators
+rem: xp_vanilla
+add: xp_hasteFactor
+add: xp_regenFactor
+add: xp_battlesuitFactor
+add: xp_health
+add: xp_healthRegen
+add: xp_armor
+add: xp_armorRegen
+chg: xp_dmFlags - added no armor regeneration
+add: xp_grappleTTL
+add: xp_mgAmmo
+add: xp_mgSpread
+add: xp_sgAmmo
+add: xp_sgStyle
+add: xp_sgSpread
+add: xp_glAmmo
+add: xp_glStyle
+add: xp_glTTL
+add: xp_rlAmmo
+add: xp_rlTTL
+add: xp_lgAmmo
+add: xp_lgStyle
+add: xp_lgRange
+add: xp_rgAmmo
+add: xp_pgAmmo
+rem: xp_pgStream
+add: xp_pgStyle
+add: xp_pgTTL
+add: xp_bfgAmmo
+add: xp_bfgStyle
+add: xp_bfgTTL
+add: extended characters in names and message of the day
+fix: g_gametype 1 (tournament) rotation bug
+fix: xp_solids 1 prediction errors (stuck on walls)
+fix: cycle time for railgun was too low
+fix: no chat protection for flag carriers
+fix: <Name> Server command overflow
+fix: CL_GetServerCommand: reliable command was cycled out
+fix: no ammo was added for pickups like weapons or ammos
+fix: chat protection was killing yourself for death bodys or missiles
+fix: xp_multiJumps didn't worked with xp_vanilla
+add: xp_replace_*
+add: xp_respawn_*
+add: xp_amount_*
+fix: Uptime bug
+chg: created a new and better excessive3.cfg and removed mrpants.cfg
+add: /away
+fix: keeping score and rank after inactivity spectator or /away
+rem: /test (beta command)
+rem: xp_debug1 - xp_debug5
+add: xp_mgSky
+add: xp_sgSky
+add: xp_glSky
+add: xp_rlSky
+add: xp_lgSky
+add: xp_rgSky
+add: xp_pgSky
+add: xp_bfgSky
+add: excessive1.cfg, excessive2.cfg, xp.cfg, xp-old.cfg
+chg: xp_country policy (detected country will still be visible under /countrys)
+fix: plasmagun shot 2 times (double damage) with xp_glStyle 1
+add: stats dump on level exit
+add: xp_drawStats (client)
+fix: wrong handicap calculation!! (all .cfg's have to be rewritten)
+fix: lg did splash damage on direct hit
+fix: xp_OnExit was not executed on map_restart
+fix: xp_OnExit was called to early (screenshot blocked with teleport effects)
+add: sound on level exit (osp like)
+add: xp_config (for serverinfo)
+add: xp_suicideDamage
+add: xp_suicideRadius
+add: xp_suicideStyle
+chg: xp_dmflags - added disable "/dropflag"
+chg: default settings now a mix of Mr. Pants' Excessive and features of XP!
+add: voting configs (xp_vote "map,kick,excessive3.cfg,....")
+
+
+
+
+Excessive Plus v1.0rc1 (Sep 2 2003)
+===================================
+First public release.
+
+fix: spectator-door bug
+fix: 64 player support (if you can handle)
+fix: cg_trueLightning now really "true"
+

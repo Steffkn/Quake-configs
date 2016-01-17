@@ -1,0 +1,13 @@
+# Quake folders
+[Mm]isc/
+[Ss]creenshots/
+[Ee]xtras/
+[Pp]b/
+
+# executables
+*.exe
+
+# Arhives
+*.rar
+*.zip
+*.pk3

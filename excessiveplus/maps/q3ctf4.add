@@ -1,0 +1,5 @@
+{
+	"classname" "team_CTF_neutralflag"
+	"origin" "320 288 16"
+	"gametype" "oneflag"
+}

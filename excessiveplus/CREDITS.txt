@@ -1,0 +1,52 @@
+The biggest thanks goes of course to Dan 'Mr. Pants' Schoenblum who created 
+the original Excessive Overkill modification for Quake III Arena. It was the 
+inspiration for this modification.
+
+
+Management
+  beast
+  easy
+  edy
+
+Programming
+  beast
+  easy
+  panda
+  cid (inactive)
+
+Operations/Support
+  edy
+  Pure Imaginary
+  dyna
+
+Protect the Leader Design
+  Xavier 'aVe' Lardy
+
+Special Thanks To
+  Pure Imaginary
+  mullder
+  PeTe
+  conker
+  ShYtEd
+  MoWLy
+  wieSel
+  Satan
+  mouse
+  Camel and all other beta testers
+
+Resources
+  Darrell Bircsak - Freeze Tag
+  Paul Jordan - ZCam
+  Neil Toronto - Unlagged
+  Sven Jacobs - Radio Mod
+  Q3F Team - Media
+  CPMA Team - Media
+  IP-to-Country Database
+  Joey Brosovich - Media
+  Broken - HUDs
+  Ozy - Media
+  Pepsinator - Media
+
+
+And of course a special thanks to ID Software for producing the greatest FPS 
+games and providing us with tools to enhance them even further.

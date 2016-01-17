@@ -1,0 +1,54 @@
+// these will be executed before each map
+$timelimit = 20;
+$fraglimit = 50;
+$capturelimit = 10;
+$roundlimit = 10;
+
+q3ctf1 {
+	$g_gametype = GT_CTF;
+}
+
+q3ctf2{
+	$g_gametype = GT_CTF;
+}
+
+q3ctf3{
+	$g_gametype = GT_CTF;
+}
+
+q3ctf4{
+	$g_gametype = GT_CTF;
+}
+
+q3dm1 {
+	$g_gametype = GT_FFA;
+}
+
+q3dm2 {
+	$g_gametype = GT_FFA;
+}
+
+
+// we can have individual conditions
+//if ( activeClients() >= 8 ) {
+//	q3dm12 {
+//		$timelimit = 10;
+//	}
+//}
+
+// we can access weapon configuration values
+// but they are read-only
+//if ( Machinegun->Damage >= 100 ) {
+//	// this is a valid mapname
+//	q3dm17++
+//}
+
+// we can include other files
+//include("rotation2.txt");
+
+
+// note, if the mapname conflicts with the syntax (e.g. mapname 'break' will conflict
+// with the 'break' keyword), you have to wrap them into quotes
+//"break" {
+//	$fraglimit = 10;
+//}

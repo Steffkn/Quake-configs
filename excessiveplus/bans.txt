@@ -1,0 +1,34 @@
+# Excessive Plus for Quake III Arena
+#
+# www.excessiveplus.net
+
+
+// comment
+#  comment
+
+Name {
+    #*yourname* {
+    #    IP: 92.18.0.4    // allow if ip match!
+    #    Password: test   //    or if password!
+    #
+    #    Reason: "Sorry, 'yourname' is a protected name!"
+    #}
+
+    #"name with space" { Reason: "Get out of here!" }
+
+    // for "^1 " names
+    " " { Reason: "Please use a name!" }
+}
+
+
+IP {
+    #172.23.3.56 {      // ban this ip
+    #    Name: test*    // but allow if the name begins with "test"
+    #
+    #    Reason: "Dude you are not test!"
+    #}
+
+    #207.46.* { Reason: "Microsoft isn't allowed!!" }
+}
+
+

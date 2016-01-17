@@ -1,0 +1,195 @@
+/* Here is an example how to modify existing maps.
+ *
+ * This will add red/blue lights to q3dm17 on team games and flags for CTF.
+ * We use a hack to add dynamic lights to the map, please note that this is
+ * very limited.
+ **/
+
+// Red base (left platform)
+	{
+		"classname" "team_CTF_redflag"
+		"origin" "-300 -850 700"
+		"notfree" "1"
+	}
+	
+	// red light for all team games
+	{
+		"classname" "func_static"
+		"origin" "-300 -850 700"
+		"model" "*1"
+		"light" "1020"
+		"color" ".004 0 0"
+		"notfree" "1"
+	}
+	
+	// intensivy the light for CTF games
+	{
+		"classname" "func_bobbing"
+		"origin" "0 -850 700"
+		"model" "*1"
+		"light" "1000"
+		"color" ".004 0 0"
+		"spawnflags" "1"
+		"height" "300"
+		"gametype" "ctf, rtf, oneflag"
+	}
+	
+	// add a white marker light where the flag should
+	// be, this will help us returning the flag
+	{
+		"classname" "func_static"
+		"origin" "-300 -850 600"
+		"model" "*1"
+		"light" "100"
+		"color" ".004 .004 .004"
+		"gametype" "rtf"
+	}
+	
+	// red team should spawn at the left side
+	// we ignore team_CTF_redplayer
+	{
+		"classname" "team_CTF_redspawn"
+		"origin" "488 -968 352"
+		"angle" "90"
+		"spawnflags" "4"
+	}
+	{
+		"classname" "team_CTF_redspawn"
+		"origin" "-288 -376 24"
+		"angle" "360"
+		"spawnflags" "4"
+	}
+	{
+		"classname" "team_CTF_redspawn"
+		"origin" "160 -896 600"
+		"angle" "180"
+		"spawnflags" "4"
+	}
+	{
+		"classname" "team_CTF_redspawn"
+		"origin" "488 -376 352"
+		"angle" "225"
+		"spawnflags" "4"
+	}
+	{
+		"classname" "team_CTF_redspawn"
+		"origin" "-272 -512 352"
+		"angle" "360"
+		"spawnflags" "4"
+	}
+	{
+		"classname" "team_CTF_redspawn"
+		"origin" "200 -552 24"
+		"angle" "90"
+		"spawnflags" "4"
+	}
+
+
+
+// Blue base (right platform)
+	{
+		"classname" "team_CTF_blueflag"
+		"origin" "-300 978 600"
+		"notfree" "1"
+	}
+	
+	// blue light for all team games
+	{
+		"classname" "func_static"
+		"origin" "-300 978 700"
+		"model" "*1"
+		"light" "1020"
+		"color" "0 0 .004"
+		"notfree" "1"
+	}
+	
+	// intensivy the light for CTF games
+	{
+		"classname" "func_bobbing"
+		"origin" "0 978 700"
+		"model" "*1"
+		"light" "1000"
+		"color" "0 0 .004"
+		"spawnflags" "1"
+		"height" "300"
+		"gametype" "ctf, rtf, oneflag"
+	}
+	
+	// add a white marker light where the flag should
+	// be, this will help us returning the flag
+	{
+		"classname" "func_static"
+		"origin" "-300 978 600"
+		"model" "*1"
+		"light" "90"
+		"color" ".004 .004 .004"
+		"gametype" "rtf"
+	}
+	
+	// blue team should spawn at the right side
+	// we ignore team_CTF_blueplayer
+	{
+		"classname" "team_CTF_bluespawn"
+		"origin" "488 1096 352"
+		"angle" "270"
+		"spawnflags" "4"
+	}
+	{
+		"classname" "team_CTF_bluespawn"
+		"origin" "160 1016 600"
+		"angle" "180"
+		"spawnflags" "4"
+	}
+	{
+		"classname" "team_CTF_bluespawn"
+		"origin" "488 504 352"
+		"angle" "135"
+		"spawnflags" "4"
+	}
+	{
+		"classname" "team_CTF_bluespawn"
+		"origin" "-288 504 24"
+		"angle" "360"
+		"spawnflags" "4"
+	}
+	{
+		"classname" "team_CTF_bluespawn"
+		"origin" "-272 640 352"
+		"angle" "360"
+		"spawnflags" "4"
+	}
+	{
+		"classname" "team_CTF_bluespawn"
+		"origin" "192 656 24"
+		"angle" "270"
+		"spawnflags" "4"
+	}
+
+
+
+// Neutral flag
+	{
+		"classname" "team_CTF_neutralflag"
+		"origin" "2432 64 372"
+		"gametype" "oneflag"
+	}
+	
+	// add some light, only if gametype = oneflag
+	{
+		"classname" "func_static"
+		"origin" "2432 64 372"
+		"model" "*1"
+		"light" "300"
+		"color" ".004 .004 .004"
+		"gametype" "oneflag"
+	}
+	{
+		"classname" "func_bobbing"
+		"origin" "2432 64 372"
+		"model" "*1"
+		"light" "600"
+		"color" ".004 .004 .004"
+		"spawnflags" "2"
+		"height" "300"
+		"gametype" "oneflag"
+	}
