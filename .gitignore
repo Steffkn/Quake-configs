@@ -6,8 +6,11 @@
 
 # executables
 *.exe
+q3key
+pb_cvars.cfg
 
 # Arhives
 *.rar
 *.zip
 *.pk3
+*.tmp
