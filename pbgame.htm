@@ -1,0 +1,252 @@
+# Latest versions of pbsetup
+<p> pbsetup_ver w 34
+<p> pbsetup_ver l 20
+<p> pbsetup_ver k 32
+<p> pbsetup_ver m 13
+
+# NOTE:  eula_md5 made by using md5tool with offset 0 and length 0
+<p> eula_md5 C418C70D3ECB3E02B15649B40602DE8D
+
+# MD5's of the executable programs
+<p> pbsetup_md5 w 2089707BDED5FD0FF7E54B768B6FC8DE
+<P> pbsetup_md5 l 33B3CFAC07A6EFEECE61A81C4B3ED1F2 288F7CBFAEEB167F5C2E44291CB7AF4A
+<p> pbsetup_md5 m 15225F100AD3B10A9D1CE65FBD20E55B
+<p> pbsetup_md5 k 71C399BDE975600ACC5DA3E6C8918F2C B0584828030D9EBFF4CD575706CC63BC
+
+# PB supported games
+<p> game aao "America's Army"
+<p> game aav3 "America's Army Version 3"
+<p> game acb "Assassin's Creed Brotherhood"
+<p> game apb "APB Reloaded"
+<p> game bf2 "Battlefield 2"
+<p> game bf2142 "Battlefield 2142"
+<p> game bfp4f "Battlefield Play4Free"
+<p> game bc2 "Battlefield Bad Company 2"
+<p> game heroes "Battlefield Heroes"
+<p> game bfv "Battlefield Vietnam"
+<p> game cod "Call of Duty"
+<p> game cod2 "Call of Duty 2"
+<p> game cod4 "Call of Duty 4"
+<p> game waw "Call of Duty: World at War"
+<p> game doom3 "DOOM3"
+<p> game et "Enemy Territory"
+<p> game etqw "Enemy Territory: Quake Wars"
+<p> game fearpm "F.E.A.R.: Perseus Mandate"
+<p> game ffow "Frontlines: Fuel of War"
+<p> game moh "Medal of Honor"
+<p> game unco "Need for Speed: Undercover"
+<p> game prey "PREY"
+<p> game q3a "Quake 3 Arena"
+<p> game q4 "Quake 4"
+<p> game vegas "Rainbow Six 5: Vegas"
+<p> game hos "Red Orchestra: Heroes of Stalingrad"
+<p> game rtcw "Return to Castle Wolfenstein"
+<p> game sof2 "Soldier of Fortune II"
+<p> game wolf "Wolfenstein"
+
+<p> game_os aao w l m
+<p> game_os aav3 w l
+<p> game_os acb w m
+<p> game_os apb w
+<p> game_os bf2 w l k
+<p> game_os bf2142 w l k
+<p> game_os bfp4f w
+<p> game_os bc2 w
+<p> game_os heroes w
+<p> game_os bfv w l
+<p> game_os cod w l m
+<p> game_os cod2 w l m
+<p> game_os cod4 w l m
+<p> game_os waw w l m
+<p> game_os crysis w l
+<p> game_os wh w l
+<p> game_os doom3 w l m
+<p> game_os et w l m
+<p> game_os etqw w l
+<p> game_os fearpm w l
+<p> game_os ffow w
+<p> game_os moh w
+<p> game_os unco w
+<p> game_os unco w l
+<p> game_os prey w l
+<p> game_os q3a w l m
+<p> game_os q4 w l m
+<p> game_os vegas w l
+<p> game_os rtcw w l m
+<p> game_os hos w
+<p> game_os sof2 w l m
+<p> game_os wolf w l
+
+# Possible game locations
+# Note:  Hints are processed in the order they appear.  If a pbcl.dll is found in a directory, that is
+#  considered a valid install location.  Otherwise, we proceed to the next hint.  If all hints are exhausted
+#  and no pbcl.dll is found, then we display the first absolute path hint.  This means that the most likely
+#  absolute file path for a game should be placed first among all the absolute file path hints.
+
+<p> game_hint w aao "HKEY_LOCAL_MACHINE[SOFTWARE\US Army\America's Army\Operations\]@InstallDir\System"
+<p> game_hint w aao "C:\Program Files\America's Army\System"
+<p> game_hint w aao "D:\Program Files\America's Army\System"
+<p> game_hint l aao "$HOME/.armyops260/System"
+<p> game_hint l aao "$HOME/.armyops250/System"
+<p> game_hint l aao "$HOME/.armyops240/System"
+<p> game_hint l aao "$HOME/.armyops230/System"
+<p> game_hint l aao "$HOME/.armyops231/System"
+<p> game_hint l aao "$HOME/.armyops221/System"
+<p> game_hint l aao "$HOME/.aao/System"
+<p> game_hint l aao "$HOME/.aao230/System"
+<p> game_hint l aao "/usr/local/games/armyops/System"
+<p> game_hint m aao "$HOME/aao/System"
+<p> game_hint m aao "/Applications/Army Operations 2.5.0.app/System/"
+
+<p> game_hint w aav3 "HKEY_LOCAL_MACHINE[SOFTWARE\US Army\America's Army\AA3Client\]@InstallDir\Binaries"
+<p> game_hint w aav3 "HKEY_LOCAL_MACHINE[SOFTWARE\Wow6432Node\US Army\America's Army\AA3Client\]@InstallDir\Binaries"
+
+<p> game_hint w acb "HKEY_LOCAL_MACHINE[SOFTWARE\Wow6432Node\Ubisoft\Assassin's Creed Brotherhood\]@InstallDir"
+<p> game_hint w acb "HKEY_LOCAL_MACHINE[SOFTWARE\Ubisoft\Assassin's Creed Brotherhood\]@InstallDir"
+<p> game_hint w acb "C:\Program Files (x86)\Ubisoft\Assassin's Creed Brotherhood\"
+<p> game_hint w acb "C:\Program Files\Ubisoft\Assassin's Creed Brotherhood\"
+
+<p> game_hint w apb "HKEY_LOCAL_MACHINE[SOFTWARE\GamersFirst\APB\APB Reloaded\]@Installation Path\Binaries"
+<p> game_hint w apb "HKEY_LOCAL_MACHINE[SOFTWARE\Wow6432Node\GamersFirst\APB\APB Reloaded\]@Installation Path\Binaries"
+<p> game_hint w apb "C:\Program Files (x86)\GamersFirst\APB Reloaded\Binaries"
+<p> game_hint w apb "C:\Program Files\GamersFirst\APB Reloaded\Binaries"
+
+<p> game_hint w bf2 "HKEY_LOCAL_MACHINE[SOFTWARE\Electronic Arts\EA Games\Battlefield 2\]@InstallDir"
+<p> game_hint w bf2 "C:\Program Files\EA Games\Battlefield 2"
+<p> game_hint w bf2 "C:\Program Files\EA Games\Battlefield 2 Server"
+<p> game_hint w bf2 "HKEY_LOCAL_MACHINE[SOFTWARE\Electronic Arts\EA Games\Battlefield 2 Demo\]@InstallDir"
+<p> game_hint w bf2 "C:\Program Files\EA Games\Battlefield 2 Demo"
+
+<p> game_hint w bf2142 "HKEY_LOCAL_MACHINE[SOFTWARE\Electronic Arts\EA Games\Battlefield 2142\]@InstallDir"
+<p> game_hint w bf2142 "C:\Program Files\EA Games\Battlefield 2142"
+<p> game_hint w bf2142 "C:\Program Files\EA Games\Battlefield 2142 Server"
+<p> game_hint w bf2142 "HKEY_LOCAL_MACHINE[SOFTWARE\Electronic Arts\EA Games\Battlefield 2142 Demo\]@InstallDir"
+<p> game_hint w bf2142 "C:\Program Files\EA Games\Battlefield 2142 Demo"
+<p> game_hint w bf2142 "C:\Program Files\Electronic Arts\Battlefield 2142 Demo"
+<p> game_hint w bf2142 "HKEY_LOCAL_MACHINE[SOFTWARE\EA GAMES\Battlefield 2142 Demo Server\]@GAMEDIR"
+<p> game_hint w bf2142 "C:\Program Files\Electronic Arts\Battlefield 2142 Demo Server"
+
+<p> game_hint w bfp4f "HKEY_LOCAL_MACHINE[SOFTWARE\Electronic Arts\EA Games\Battlefield Play4Free\]@InstallDir"
+<p> game_hint w bfp4f "HKEY_LOCAL_MACHINE[SOFTWARE\Wow6432Node\Electronic Arts\EA Games\Battlefield Play4Free\]@InstallDir"
+<p> game_hint w bfp4f "C:\Program Files (x86)\EA Games\Battlefield Play4Free\"
+<p> game_hint w bfp4f "C:\Program Files\EA Games\Battlefield Play4Free\"
+
+<p> game_hint w bc2 "HKEY_LOCAL_MACHINE[SOFTWARE\Electronic Arts\Battlefield Bad Company 2\]@Install Dir"
+<p> game_hint w bc2 "HKEY_LOCAL_MACHINE[SOFTWARE\Wow6432Node\Electronic Arts\Battlefield Bad Company 2\]@Install Dir"
+<p> game_hint w bc2 "C:\Program Files (x86)\Electronic Arts\Battlefield Bad Company 2\"
+<p> game_hint w bc2 "C:\Program Files (x86)\Steam\SteamApps\common\battlefield bad company 2\"
+<p> game_hint w bc2 "C:\Program Files\Steam\SteamApps\common\battlefield bad company 2\"
+<p> game_hint w bc2 "C:\Program Files\Electronic Arts\Battlefield Bad Company 2\"
+
+<p> game_hint w heroes "HKEY_LOCAL_MACHINE[SOFTWARE\Electronic Arts\EA GAMES\Battlefield Heroes\]@Installation Dir"
+<p> game_hint w heroes "HKEY_LOCAL_MACHINE[SOFTWARE\Wow6432Node\Electronic Arts\EA GAMES\Battlefield Heroes\]@Installation Dir"
+<p> game_hint w heroes "C:\Program Files\EA Games\Battlefield Heroes"
+<p> game_hint w heroes "C:\Program Files (x86)\EA Games\Battlefield Heroes"
+
+<p> game_hint w doom3 "HKEY_LOCAL_MACHINE[SOFTWARE\Id\Doom 3\]@InstallPath"
+<p> game_hint w doom3 "C:\Program Files\Doom 3"
+<p> game_hint l doom3 "$HOME/.doom3"
+
+<p> game_hint w bfv "HKEY_LOCAL_MACHINE[SOFTWARE\EA GAMES\Battlefield Vietnam\]@GAMEDIR"
+
+<p> game_hint w moh "HKEY_LOCAL_MACHINE[SOFTWARE\Electronic Arts\Medal of Honor\]@Install Dir\MP"
+<p> game_hint w moh "HKEY_LOCAL_MACHINE[SOFTWARE\Valve\Steam\]@InstallPath\steamapps\common\medal of honor\MP"
+<p> game_hint w moh "C:\Program Files\Electronic Arts\Medal of Honor\MP"
+
+<p> game_hint w unco "HKEY_LOCAL_MACHINE[SOFTWARE\EA GAMES\Need for Speed Undercover\]@Install Dir"
+<p> game_hint w unco "HKEY_LOCAL_MACHINE[SOFTWARE\Wow6432Node\EA GAMES\Need for Speed Undercover\]@Install Dir"
+<p> game_hint w unco "C:\Program Files (x86)\EA Games\Need for Speed Undercover\"
+<p> game_hint w unco "C:\Program Files\EA Games\Need for Speed Undercover\"
+
+<p> game_hint w prey "C:\Program Files\Human Head Studios\Prey"
+<p> game_hint w prey "C:\Program Files\Prey"
+
+<p> game_hint w q3a "HKEY_LOCAL_MACHINE[SOFTWARE\Id\Quake III Arena\]@INSTALLPATH"
+<p> game_hint w q3a "C:\Program Files\Quake III Arena"
+<p> game_hint l q3a "$HOME/.q3a"
+<p> game_hint l q3a "/usr/local/games/quake3"
+<p> game_hint m q3a "/Applications/Quake3"
+
+<p> game_hint w q4 "HKEY_LOCAL_MACHINE[SOFTWARE\Id\Quake 4\]@InstallPath"
+<p> game_hint w q4 "C:\Program Files\id Software\Quake 4"
+<p> game_hint l q4 "$HOME/.quake4"
+<p> game_hint l q4 "/usr/local/games/quake4"
+<p> game_hint m q4 "/Applications/Quake4"
+
+<p> game_hint w cod "HKEY_LOCAL_MACHINE[SOFTWARE\Activision\Call of Duty\]@InstallPath"
+<p> game_hint w cod "HKEY_LOCAL_MACHINE[SOFTWARE\Valve\Steam\]@InstallPath\steamapps\common\call of duty"
+<p> game_hint w cod "C:\PROGRA~1\CALLOF~1"
+<p> game_hint m cod "$HOME/Library/Application Support/Call of Duty"
+
+<p> game_hint w cod2 "HKEY_LOCAL_MACHINE[SOFTWARE\Activision\Call of Duty 2\]@InstallPath"
+<p> game_hint w cod2 "HKEY_LOCAL_MACHINE[SOFTWARE\Valve\Steam\]@InstallPath\steamapps\common\call of duty 2"
+<p> game_hint w cod2 "C:\Program Files\Activision\Call of Duty 2"
+<p> game_hint m cod2 "/Applications/Call of Duty 2"
+<p> game_hint m cod2 "$HOME/Library/Application Support/Call of Duty 2"
+
+<p> game_hint w crysis "HKEY_LOCAL_MACHINE[SOFTWARE\Crytek\Crysis\]@InstallDir"
+<p> game_hint w crysis "HKEY_LOCAL_MACHINE[SOFTWARE\Wow6432Node\Crytek\Crysis\]@InstallDir"
+<p> game_hint w crysis "C:\Program Files\Electronic Arts\Crytek\Crysis"
+
+<p> game_hint w wh "$USERPROFILE\Documents\My Games\Crysis Wars"
+<p> game_hint w wh "$USERPROFILE\My Documents\My Games\Crysis Wars"
+<p> game_hint w wh "$USERPROFILE\My Documents\My Games\Crysis Wars\PunkBuster"
+<p> game_hint w wh "HKEY_LOCAL_MACHINE[SOFTWARE\Crytek\Crysis Wars\]@InstallDir"
+<p> game_hint w wh "HKEY_LOCAL_MACHINE[SOFTWARE\Wow6432Node\Crytek\Crysis Wars]@InstallDir"
+<p> game_hint w wh "C:\Program files\Electronic Arts\Crytek\Crysis Wars"
+
+<p> game_hint w cod4 "HKEY_LOCAL_MACHINE[SOFTWARE\Activision\Call of Duty 4\]@InstallPath"
+<p> game_hint w cod4 "HKEY_LOCAL_MACHINE[SOFTWARE\Wow6432Node\Activision\Call of Duty 4\]@InstallPath"
+<p> game_hint w cod4 "HKEY_LOCAL_MACHINE[SOFTWARE\Valve\Steam\]@InstallPath\steamapps\common\call of duty 4"
+<p> game_hint w cod4 "C:\Program Files\Activision\Call of Duty 4"
+<p> game_hint w cod4 "C:\Program Files\Steam\steamapps\common\call of duty 4"
+<p> game_hint m cod4 "$HOME/Library/Application Support/Call of Duty 4"
+<p> game_hint m cod4 "/Applications/Call of Duty 4.app/Contents/Call of Duty 4 Data"
+<p> game_hint m cod4 "/Applications/Call of Duty 4.app/Call of Duty 4 Data"
+<p> game_hint m cod4 "/Applications/Call of Duty 4.app/Contents/Call of Duty 4 Multiplayer.app/Contents"
+<p> game_hint m cod4 "/Applications/Call of Duty 4.app/Contents"
+<p> game_hint m cod4 "/Applications/Call of Duty 4"
+<p> game_hint m cod4 "/Applications/Call of Duty 4"
+
+<p> game_hint w waw "HKEY_LOCAL_MACHINE[SOFTWARE\Wow6432Node\Activision\CODWAW\]@InstallPath"
+<p> game_hint w waw "HKEY_LOCAL_MACHINE[SOFTWARE\Wow6432Node\Activision\Call of Duty WAW\]@InstallPath"
+<p> game_hint w waw "HKEY_LOCAL_MACHINE[SOFTWARE\Activision\CODWAW\]@InstallPath"
+<p> game_hint w waw "HKEY_LOCAL_MACHINE[SOFTWARE\Activision\Call of Duty WAW\]@InstallPath"
+<p> game_hint w waw "C:\Program Files\Activision\Call of Duty - World at War"
+
+<p> game_hint w et "HKEY_LOCAL_MACHINE[SOFTWARE\Activision\Wolfenstein - Enemy Territory\]@InstallPath"
+<p> game_hint w et "C:\PROGRA~1\WOLFEN~1"
+<p> game_hint l et "$HOME/.etwolf"
+<p> game_hint l et "/usr/local/games/enemy-territory"
+<p> game_hint m et "$HOME/Library/Application Support/Wolfenstein ET"
+
+<p> game_hint w etqw "HKEY_LOCAL_MACHINE[SOFTWARE\Id\ETQW Beta]@InstallPath"
+<p> game_hint w etqw "HKEY_LOCAL_MACHINE[SOFTWARE\Id\ET - QUAKE Wars]@InstallPath"
+<p> game_hint w etqw "HKEY_LOCAL_MACHINE[SOFTWARE\Wow6432Node\Id\ET - QUAKE Wars]@InstallPath"
+
+<p> game_hint w fearpm "HKEY_LOCAL_MACHINE[SOFTWARE\TimeGate Studios\FEARXP2\1.00.0000]@InstallDir"
+<p> game_hint w fearpm "HKEY_LOCAL_MACHINE[SOFTWARE\TimeGate Studios\FEAR Perseus Mandate\1.00.0000]@InstallDir"
+<p> game_hint w fearpm "C:\Program Files\Sierra Entertainment\FEAR Perseus Mandate"
+<p> game_hint w fearpm "C:\Documents and Settings\All Users\Documents\TimeGate Studios\FEAR"
+
+<p> game_hint w ffow "HKEY_LOCAL_MACHINE[SOFTWARE\THQ\Frontlines: Fuel of War\]@InstallDir\Binaries"
+<p> game_hint w ffow "C:\Program Files\steam\steamapps\common\frontlines fuel of war\Binaries\"
+
+<p> game_hint w sof2 "HKEY_LOCAL_MACHINE[SOFTWARE\Activision\Soldier of Fortune II - Double Helix\]@InstallPath"
+<p> game_hint w sof2 "C:\Program Files\Soldier of Fortune II - Double Helix GOLD"
+<p> game_hint m sof2 "$HOME/Library/Application Support/Soldier of Fortune 2 MP"
+
+<p> game_hint w vegas "HKEY_LOCAL_MACHINE[SOFTWARE\Ubisoft\Rainbow Six Vegas]@InstallDir\KellerGame"
+
+<p> game_hint w wolf "HKEY_LOCAL_MACHINE[SOFTWARE\Activision\Wolfenstein]@InstallPath\MP"
+<p> game_hint w wolf "HKEY_LOCAL_MACHINE[SOFTWARE\Wow6432Node\Activision\Wolfenstein]@InstallPath\MP"
+
+<p> game_hint w hos "C:\Program Files\steam\steamapps\common\redorchestra2beta\Binares\Win32\"
+<p> game_hint w hos "C:\Program Files (x86)\steam\steamapps\common\redorchestra2beta\Binares\Win32\"
+<p> game_hint w hos "HKEY_LOCAL_MACHINE[SOFTWARE\Valve\Steam]@InstallPath\steamapps\common\redorchestra2beta\Binaries\Win32"
+<p> game_hint w hos "HKEY_LOCAL_MACHINE[SOFTWARE\Wow6432Node\Valve\Steam]@InstallPath\steamapps\common\redorchestra2beta\Binaries\Win32"
+
+<p> game_hint w rtcw "HKEY_LOCAL_MACHINE[SOFTWARE\Activision\Return to Castle Wolfenstein - Game of The Year Edition\]@InstallPath"
+<p> game_hint w rtcw "HKEY_LOCAL_MACHINE[SOFTWARE\Activision\Return to Castle Wolfenstein\]@InstallPath"
+<p> game_hint w rtcw "C:\Program Files\Return to Castle Wolfenstein"
+<p> game_hint w rtcw "C:\Program Files\Return to Castle Wolfenstein - Game of The Year Edition"
